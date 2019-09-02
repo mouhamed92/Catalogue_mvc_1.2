@@ -10,7 +10,8 @@
 	<p></p>
 	<div class="container">
 		<form th:action="@{index}" method="get">
-			<label>Mot clé :</label> <input type="text" name="motCle" th:value="${motCle}" />
+			<label>Mot clé :</label> <input type="text" name="motCle"
+				th:value="${motCle}" />
 			<button class="btn btn-primary">Chercher</button>
 		</form>
 	</div>
@@ -30,6 +31,13 @@
 				<th th:text="${p.quantite}"></th>
 			</tr>
 		</table>
+	</div>
+	<div class="container">
+		<ul class="nav nav-pills" >
+			<li th:each="p,status:${pages}">
+			 <a th:href="@{index(page=${status.index},size=${size},mc=${motCle})}" th:text="${status.index}"></a>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>
