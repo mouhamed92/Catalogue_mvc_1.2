@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet" />
+<title>Produits</title>
+</head>
+<body>
+	<p></p>
+	<div class="container">
+		<form th:action="@{index}" method="get">
+			<label>Mot clé :</label> <input type="text" name="motCle" th:value="${motCle}" />
+			<button class="btn btn-primary">Chercher</button>
+		</form>
+	</div>
+	<div class="container">
+		<h3>Liste des produits :</h3>
+		<table class="table">
+			<tr>
+				<th>ID</th>
+				<th>Désignation</th>
+				<th>Prix</th>
+				<th>Quantité</th>
+			</tr>
+			<tr th:each="p:${produits}">
+				<th th:text="${p.id}"></th>
+				<th th:text="${p.designation}"></th>
+				<th th:text="${p.prix}"></th>
+				<th th:text="${p.quantite}"></th>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
